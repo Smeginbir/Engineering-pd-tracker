@@ -2,10 +2,6 @@ import datetime
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-# -------------------------
-# CONFIG
-# -------------------------
-
 SHEET_NAME = "Western Canada Engineering PD Tracker"
 
 KEYWORDS = {
@@ -14,10 +10,6 @@ KEYWORDS = {
     "Leadership / Administration": ["management", "leadership", "governance", "compliance"],
     "Project Management": ["project management", "pmp", "risk"]
 }
-
-# -------------------------
-# GOOGLE SHEETS CONNECTION
-# -------------------------
 
 scope = [
     "https://spreadsheets.google.com/feeds",
@@ -30,10 +22,6 @@ creds = ServiceAccountCredentials.from_json_keyfile_name(
 
 client = gspread.authorize(creds)
 sheet = client.open(SHEET_NAME).sheet1
-
-# -------------------------
-# SAMPLE EVENTS (BEGINNER VERSION)
-# -------------------------
 
 sample_events = [
     {"title": "Electrical Power Systems Webinar – Alberta", "url": "https://example.com", "source": "Sample"},
