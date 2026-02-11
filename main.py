@@ -11,17 +11,24 @@ KEYWORDS = {
     "Project Management": ["project management", "pmp", "risk"]
 }
 
+import os
+import json
+
 scope = [
     "https://spreadsheets.google.com/feeds",
     "https://www.googleapis.com/auth/drive"
 ]
 
-creds = ServiceAccountCredentials.from_json_keyfile_name(
-    "service_account.json", scope
+creds_dict = json.loads(os.environ["GOOGLE_CREDS"])
+
+creds = ServiceAccountCredentials.from_json_keyfile_dict(
+    creds_dict,
+    scope
 )
 
 client = gspread.authorize(creds)
 sheet = client.open(SHEET_NAME).sheet1
+
 
 sample_events = [
     {"title": "Electrical Power Systems Webinar – Alberta", "url": "https://example.com", "source": "Sample"},
