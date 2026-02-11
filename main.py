@@ -22,7 +22,7 @@ scope = [
 creds_dict = json.loads(os.environ["GOOGLE_CREDS"])
 
 creds = ServiceAccountCredentials.from_json_keyfile_dict(
-    creds_dict,
+    creds_dict, 
     scope
 )
 
