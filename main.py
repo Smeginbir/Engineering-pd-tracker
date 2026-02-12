@@ -1,3 +1,4 @@
+print("Script started")
 import datetime
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
@@ -77,3 +78,4 @@ def run():
 
 if __name__ == "__main__":
     run()
+print("Script completed successfully")
